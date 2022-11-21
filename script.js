@@ -1,20 +1,9 @@
-// Mock
-let transactions = [
-  ['12/10/2021', 'Título 01', 1500, 'V'],
-  ['13/10/2021', 'Título 02', 1500, 'F'],
-  ['14/10/2021', 'Título 03', 1500, 'V'],
-  ['15/10/2021', 'Título 04', 1500, 'F'],
-  ['16/10/2021', 'Título 05', 1500, 'V'],
-]
-
 let fixedIncome = document.getElementById('fixed-money-value').innerText;
 let variableIncome = document.getElementById('variable-money-value').innerText;
 let totalIncome = document.getElementById('total-money-value');
 
 let id = 1;
 let arrayTransaction = []
-
-
 
 function getData() {
   let transaction = {}
@@ -81,12 +70,14 @@ function tableShow() {
 
     let imgDelete = document.createElement('img');
     imgDelete.src = './assets/trash.svg'
+    imgDelete.setAttribute("onclick", `deleteTransaction(${arrayTransaction[i].id})`);
     let imgEdit = document.createElement('img');
     imgEdit.src = './assets/note-pencil.svg'
 
     td_actions.appendChild(imgEdit);
     td_actions.appendChild(imgDelete);
 
+    console.log(arrayTransaction);
   }
 }
 
@@ -100,4 +91,18 @@ function cancel() {
   document.getElementById('title-name').value = '';
   document.getElementById('money').value = '';
   document.getElementById('type').value = '';
+}
+
+function deleteTransaction(id) {
+
+  let tbody = document.getElementById('tbody');
+
+  for(let i = 0; i < arrayTransaction.length; i++) {
+    if(arrayTransaction[i].id === id) {
+      arrayTransaction.splice(i, 1);
+      tbody.deleteRow(i)
+    }
+  }
+
+  console.log(arrayTransaction);
 }
