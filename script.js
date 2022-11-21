@@ -46,6 +46,8 @@ function save() {
 
   if(validateData(transaction)) {
     addTransaction(transaction);
+  } else {
+    return
   };
 
   cancel();
