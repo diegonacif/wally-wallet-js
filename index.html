@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/index.css">
+  <link rel="shortcut icon" href="./assets/wallet.png" type="image/x-icon">
+  <title>Wally Walet</title>
+</head>
+<body>
+
+  <header>
+    <span>Wally Wallet</span>
+    <button onclick="test()">Botão</button>
+  </header>
+
+  <!-- Total -->
+  <section class="total-wallet">
+    <div class="wallet-wrapper">
+      <h4>Seu patrimônio total é de:</h4>
+      <div class="total-value-wrapper">
+        <span>R$</span>
+        <span id="total-money-value">0.00</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Total per category -->
+  <section class="categories">
+    <div class="income-ball">
+      <span>R$</span>
+      <span id="fixed-money-value">100.50</span>
+    </div>
+    <div class="income-ball">
+      <span>R$</span>
+      <span id="variable-money-value">200.00</span>
+    </div>
+  </section>
+
+  <!-- Create new transaction -->
+  <div class="new-transaction">
+    <div class="input-rows">
+      <div class="input-wrapper">
+        <label for="money">Valor</label>
+        <input type="text" id="money">
+      </div>
+      <div class="input-wrapper">
+        <label for="type">Tipo</label>
+        <select name="type" id="type">
+          <option disabled selected value>Selecione uma opção</option>
+          <option value="variable">Renda Variável</option>
+          <option value="fixed">Renda Fixa</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="input-wrapper">
+      <label for="date">Data</label>
+      <input type="text" id="date">
+    </div>
+
+    <div class="input-wrapper">
+      <label for="title-name">Nome do Título</label>
+      <input type="text" id="title-name">
+    </div>
+
+    <div class="buttons">
+      <button onclick="save()">Salvar</button>
+      <button onclick="cancel()">Cancelar</button>
+    </div>
+
+  </div>
+
+  <!-- Transaction history table -->
+  <section class="history-container">
+
+    <div class="history-title">
+      <h4>Histórico de Transações</h4>
+    </div>
+
+    <table class="history-transactions">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Nome do Título</th>
+          <th>Valor</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        
+      </tbody>
+    </table>
+  </section>
+  <script src="./script.js"></script>
+</body>
+</html>
